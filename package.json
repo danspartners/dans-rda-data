@@ -1,0 +1,22 @@
+{
+  "name": "rda-data",
+  "scripts": {
+    "start": "docker compose up -d --build",
+    "index": "(cd indexer && npx ts-node index.ts)",
+    "index:demo": "(cd indexer && NODE_ENV=demo npx ts-node index.ts)"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^20.5.4",
+    "@types/pg": "^8.10.2",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.3.1",
+    "es7": "npm:@elastic/elasticsearch@^7.17.0",
+    "fs-extra": "^11.1.1",
+    "pg": "^8.11.3"
+  }
+}

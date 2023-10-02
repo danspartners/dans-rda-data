@@ -7,6 +7,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 import { Client } from 'pg'
 const client = new Client()
 
+const INDEX_NAME = 'dans-rda2'
 const ROWS_PER_PAGE = 100
 let page: number = 1
 
@@ -16,7 +17,7 @@ async function selectRows() {
 	for (const row of result.rows) {
 		try {
 			await esClient.index({
-				index: 'dans-rda2',
+				index: INDEX_NAME,
 				body: row,
 				id: row.uuid_resource
 			})
@@ -33,7 +34,7 @@ async function selectRows() {
 }
 
 export async function indexRDA() {
-	await initIndex('dans-rda2')
+	await initIndex(INDEX_NAME)
 
 	await client.connect()
 	await selectRows()

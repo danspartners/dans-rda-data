@@ -1,7 +1,7 @@
 {
   "name": "rda-data",
   "scripts": {
-    "start": "docker compose up -d --build",
+    "start": "docker compose -p rda up -d --build",
     "index": "(cd indexer && npx ts-node index.ts)",
     "index:demo": "(cd indexer && NODE_ENV=demo npx ts-node index.ts)"
   },

@@ -5,7 +5,7 @@ services:
   # Elasticsearch Docker Images: https://www.docker.elastic.co/
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
-    container_name: elasticsearch
+    # container_name: elasticsearch
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
@@ -25,7 +25,7 @@ services:
       - 9300:9300
 
   kibana:
-    container_name: kibana
+    # container_name: kibana
     image: docker.elastic.co/kibana/kibana:7.4.0
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
@@ -35,7 +35,7 @@ services:
       - elasticsearch
 
   db:
-    container_name: postgis
+    # container_name: postgis
     env_file:
       - .env
     image: postgis/postgis:15-master
@@ -45,7 +45,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   adminer:
-    container_name: adminer
+    # container_name: adminer
     image: adminer
     ports:
       - 8080:8080
